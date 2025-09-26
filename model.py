@@ -70,7 +70,7 @@ class GenericTransformer(nn.Module):
         return y.mean(dim=1)                      # [B, d_model]
 
 
-class ShapeFormerGated(nn.Module):
+class ShapeFormerConv(nn.Module):
     def __init__(self, input_channels, num_shapelets,
                  shapelet_length, d_gen, num_classes):
         super().__init__()
