@@ -32,7 +32,7 @@ class ConvShapeletFilter(nn.Module):
         mu_s = S.mean(dim=1, keepdim=True)
         std_s = S.std(dim=1, unbiased=False, keepdim=True) + self.eps
         S_norm = (S - mu_s) / std_s
-        corr = torch.einsum('btl,kl->btk', x_norm, S_norm)
+        corr = torch.einsum('btl,kl->btk', x_norm, S_norm) /L
         
         max_vals, max_idx = corr.max(dim=1) 
         self.last_best_positions = max_idx
