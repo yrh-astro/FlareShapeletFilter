@@ -1,3 +1,8 @@
+import torch
+import torch.nn as nn
+import random
+from create_lc import *
+
 class ConvShapeletFilterClassWise(nn.Module):
     def __init__(self, shapelet_length, num_shapelets, num_classes, eps=1e-6):
         super().__init__()
